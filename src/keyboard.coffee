@@ -27,7 +27,7 @@ class Keyboard
 
   handlePress: (code) ->
     @keys[''+code]?.press()
-    @currentChord.push code if @currentChord.indexOf code is -1
+    @currentChord.push code if -1 is @currentChord.indexOf code
 
   handleRelease: (code) ->
     @keys[''+code]?.release()
