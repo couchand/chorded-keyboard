@@ -14,11 +14,13 @@ require(['keycodes', 'keyboard','jquery'],  function ( keycodes, keyboard, $ ) {
         }
 
         $(document).keydown(function(event) {
+            event.preventDefault();
             keyboard.handlePress( event.keyCode );
             refresh();
         });
 
         $(document).keyup(function(event) {
+            event.preventDefault();
             keyboard.handleRelease( event.keyCode );
             refresh();
         });
