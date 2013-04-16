@@ -17,7 +17,7 @@ class Keyboard
   constructor: (codes) ->
     @keys = {}
     for code of codes
-      @keys[''+code] = new Key code
+      @keys[code] = new Key code
     @currentChord = []
 
   anyDown: ->
@@ -26,12 +26,14 @@ class Keyboard
     return no
 
   handlePress: (code) ->
-    @keys[''+code]?.press()
-    @currentChord.push code if -1 is @currentChord.indexOf code
+    if @keys[code]?
+      @keys[code].press()
+      @currentChord.push code if -1 is @currentChord.indexOf code
 
   handleRelease: (code) ->
-    @keys[''+code]?.release()
-    @fireEvent @currentChord unless @anyDown()
+    if @keys[code]?
+      @keys[code].release()
+      @fireEvent @currentChord unless @anyDown()
 
   fireEvent: (chord) ->
     @currentChord = []
