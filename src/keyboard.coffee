@@ -20,9 +20,13 @@ class Keyboard
     for code of codes
       @keys[code] = new Key code
     @currentChord = []
+    @handler = console.log
 
   setLayout: (layout) ->
     @mappings = layout
+
+  setHandler: (handler) ->
+    @handler = handler
 
   anyDown: ->
     for code of @keys
@@ -42,7 +46,8 @@ class Keyboard
   fireEvent: (chord) ->
     @currentChord = []
     chord.sort()
-    console.log @mappings[chord]
+    char = @mappings[chord]
+    @handler char if char
 
 define ['keycodes'], (codes) -> new Keyboard codes
 

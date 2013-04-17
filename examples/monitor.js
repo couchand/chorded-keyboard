@@ -28,6 +28,15 @@ require(['keycodes','keyboard','asetniop','jquery'],
             refresh();
         });
 
+        var textarea = $('#editor');
+
+        function type(keypress) {
+            var current = textarea.val();
+            textarea.val( current + keypress );
+        }
+
+        keyboard.setHandler(type);
+
         function refresh() {
 
             for ( var i in keycodes ) {
