@@ -1,3 +1,5 @@
-examples/keyboard.js
-examples/keycodes.js
-examples/asetniop.js
+*/keyboard.js
+*/keycodes.js
+*/asetniop.js
+test/all.js
+test/*_test.js
