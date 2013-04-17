@@ -25,3 +25,16 @@ define ['keycodes', 'keyboard'], (codes, kb) ->
 
     ok not kb.keys[TEST_KEY].isDown(),
       "after releasing a key should be up"
+
+  asyncTest "trigger event", () ->
+    TEST_KEY = 74
+    TEST_CHAR = 'foobar'
+    kb.mappings[[TEST_KEY]] = TEST_CHAR
+
+    kb.setHandler (char) ->
+      equal char, TEST_CHAR,
+        "the correct character should be matched"
+      start()
+
+    kb.handlePress TEST_KEY
+    kb.handleRelease TEST_KEY
