@@ -1,9 +1,7 @@
 // Status Monitor Example
 
-require(['keycodes','keyboard','asetniop','jquery'],
-  function ( keycodes, keyboard, asetniop, $ ) {
-
-    keyboard.setLayout( asetniop );
+require(['keycodes','keyboard','jquery'],
+  function ( keycodes, keyboard, $ ) {
 
     $(function() {
 
@@ -27,15 +25,6 @@ require(['keycodes','keyboard','asetniop','jquery'],
             keyboard.handleRelease( event.keyCode );
             refresh();
         });
-
-        var textarea = $('#editor');
-
-        function type(keypress) {
-            var current = textarea.val();
-            textarea.val( current + keypress );
-        }
-
-        keyboard.setHandler(type);
 
         function refresh() {
 
