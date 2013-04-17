@@ -8,11 +8,20 @@ require(['keyboard','asetniop','jquery'],
     $(function() {
 
         $(document).keydown(function(event) {
+            if ( 32 == event.keyCode )
+            {
+                return true;
+            }
             event.preventDefault();
             keyboard.handlePress( event.keyCode );
         });
 
         $(document).keyup(function(event) {
+            if ( 32 == event.keyCode )
+            {
+                type(' ');
+                return true;
+            }
             event.preventDefault();
             keyboard.handleRelease( event.keyCode );
         });
