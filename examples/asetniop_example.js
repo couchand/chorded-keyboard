@@ -21,7 +21,12 @@ require(['keyboard','asetniop','jquery'],
 
         function type(keypress) {
             var current = textarea.val();
-            textarea.val( current + keypress );
+            if ( 'delete' === keypress ) {
+                textarea.val( current.substring( 0, current.length-1 ) );
+            }
+            else {
+                textarea.val( current + keypress );
+            }
         }
 
         keyboard.setHandler(type);
