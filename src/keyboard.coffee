@@ -16,9 +16,13 @@ class Key
 class Keyboard
   constructor: (codes) ->
     @keys = {}
+    @mappings = {}
     for code of codes
       @keys[code] = new Key code
     @currentChord = []
+
+  setLayout: (layout) ->
+    @mappings = layout
 
   anyDown: ->
     for code of @keys
@@ -37,7 +41,8 @@ class Keyboard
 
   fireEvent: (chord) ->
     @currentChord = []
-    console.log chord
+    chord.sort()
+    console.log @mappings[chord]
 
 define ['keycodes'], (codes) -> new Keyboard codes
 

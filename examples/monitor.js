@@ -1,6 +1,9 @@
 // Status Monitor Example
 
-require(['keycodes', 'keyboard','jquery'],  function ( keycodes, keyboard, $ ) {
+require(['keycodes','keyboard','asetniop','jquery'],
+  function ( keycodes, keyboard, asetniop, $ ) {
+
+    keyboard.setLayout( asetniop );
 
     $(function() {
 
