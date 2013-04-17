@@ -3,12 +3,17 @@
         <title>Chorded Keyboard Status Monitor Example</title>
         <script data-main="monitor" src="require.js"></script>
         <style>
+            ul, textarea {
+                margin: 10px;
+                clear: both;
+            }
             ul {
+                width: 385px;
+                padding: 0;
                 list-style-type: none;
             }
             li {
-                display: block;
-                float: left;
+                display: inline-block;
                 width: 32px;
                 height: 32px;
                 text-align: center;
